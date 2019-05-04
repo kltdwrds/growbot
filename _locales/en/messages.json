@@ -1,0 +1,8 @@
+{
+  "appName": {
+    "message": "GrowBot Automator for Instagram"
+  },
+  "appDesc": {
+    "message": "This bot will automatically follow all of someone's Instagram followers for you.  It can also unfollow for you, with options to keep people who follow you and more.  It waits between following so as to not be blocked by Instagram's rate limits.  It can also automatically like media from your feed.  It's currently available to download for free, but probably won't be forever."
+  }
+}

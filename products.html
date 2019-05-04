@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>Purchase GrowBot for Instagram</title>
+    <!-- <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="products.css">
+</head>
+
+<body>
+    <h3>Subscribe to GrowBot Automation for Instagram&trade;</h3>
+    <p><b>Your subscription will include a 7 day free trial</b>. After that you will be billed monthly or yearly depending on your subscription choice.</p>
+    <h3 class="notLoggedIn">You are not logged in to Google. <u>Log in</u> to subscribe or load subscriptions.</h3>
+    <div id="status"></div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="name">Item</th>
+                <th class="desc">Description</th>
+                <th class="price">Price</th>
+                <th class="action"></th>
+            </tr>
+        </thead>
+        <tbody id="productsTBody">
+            <tr>
+                <td>Monthly GrowBot for Instagram Subscription</td>
+                <td>Grants continued usage of GrowBot for Instagram, paid on a monthly basis</td>
+                <td>$4.99</td>
+                <td>
+                    <button type="button" id="btnProdID-instabot_monthly_subscription" class="btn btn-sm btn-success">Purchase</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Yearly GrowBot for Instagram Subscription</td>
+                <td>Save money by paying by the year</td>
+                <td>$49.99</td>
+                <td>
+                    <button type="button" id="btnProdID-instabot_yearly_subscription" class="btn btn-sm btn-success">Purchase</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="modalLicense" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">License Data</h4>
+                </div>
+                <div class="modal-body">
+                    <pre class="license">license data</pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="buy.js"></script>
+    <script type="text/javascript" src="products.js"></script>
+    <script type="text/javascript" src="bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<div id="igBotInjectedContainer">
+    <div id="igBotDialog">
+        <div id="igBotDialogQuestion">Question text goes here?</div>
+        <div class="igBotInjectedButton" id="btnDialogOK">OK</div>
+        <div class="igBotInjectedButton" id="btnDialogCancel">Cancel</div>
+    </div>
+    <div id="igBotLeft">
+        <div id="igBotHeading">
+            <div>
+                <h1>GrowBot Automation for Instagram™</h1>
+                <h2 id="h2FreeTrialTimeLeft"></h2>
+            </div>
+            <label for="cbLimitQueueSize" id="lblLimitQueueSize">
+                <input type="checkbox" checked="checked" id="cbLimitQueueSize">Limit Queue to
+                <input type="number" value="1000" min="1" id="txtLimitQueueSize">
+            </label>
+            <div id="igBotQueueCount"></div>
+            <div id="igBotQueueSelectedCount"></div>
+            <select id="igBotQueueOrderBy">
+                <option value="followersAsc">Followers &uarr;</option>
+                <option value="followersDesc">Followers &darr;</option>
+                <option value="followingAsc">Following &uarr;</option>
+                <option value="followingDesc">Following &darr;</option>
+                <option value="postsAsc">Posts &uarr;</option>
+                <option value="postsDesc">Posts &darr;</option>
+                <option value="privateAsc">Private &uarr;</option>
+                <option value="privateDesc">Private &darr;</option>
+                <option value="verifiedAsc">Verified &uarr;</option>
+                <option value="verifiedDesc">Verified &darr;</option>
+                <option value="lastPostAsc">Last Post Date &uarr;</option>
+                <option value="lastPostDesc">Last Post Date &darr;</option>
+                <option value="followRatioAsc">Follow Ratio &uarr;</option>
+                <option value="followRatioDesc">Follow Ratio &darr;</option>
+            </select>
+            <form id="igBotQueueFilterForm">
+                <input type="text" id="igBotQueueFilter" required placeholder="">
+                <button class="close-icon" type="reset"></button>
+            </form>
+            <div id="igBotOptions">
+                <h3>Growbot Settings</h3>
+                <details id="detailsPerformanceOptions">
+                    <summary>Performance Options</summary>
+                    <div class="followOptions">
+                        <label for="cbShowStamps">
+                            <input type="checkbox" checked="checked" id="cbShowStamps" /> Show stamps in queue
+                        </label>
+                        <label for="cbRemoveFromQueue">
+                            <input type="checkbox" id="cbRemoveFromQueue" /> Remove accounts from queue after processing
+                        </label>
+                        <label for="cbConvenienceLinks">
+                            <input type="checkbox" checked="checked" id="cbConvenienceLinks" /> Show convenience buttons in feed (Whitelist/Unfollow)
+                        </label>
+                        <label for="cbShowUnfollowingInQueue">
+                            <input type="checkbox" checked="checked" id="cbShowUnfollowingInQueue" /> Show unfollowing in queue</label>
+                        <label for="cbShowLikesInQueue">
+                            <input type="checkbox" checked="checked" id="cbShowLikesInQueue" /> Show Likes in queue</label>
+                    </div>
+                </details>
+                <details id="detailsWaitTime">
+                    <summary>Configure Wait Times</summary>
+                    <div class="followOptions">
+                        <span>Wait <input type="number" value="20" step="1" min="0" id="textSecondsBetweenActions"></input> seconds after follow/unfollow</span>
+                        <span>Wait <input type="number" value="1" step="1" min="0" id="textSecondsAfterSkip"></input> seconds after skip</span>
+                        <label for="cbRandomizeTimeDelay">
+                            <input type="checkbox" checked="checked" id="cbRandomizeTimeDelay" />Randomize wait time by up to
+                            <input type="number" value="25" step="1" min="0" id="igBotPercentRandomTimeDelay"></input>%
+                        </label>
+                        <span>Wait <input type="number" value="10" step="1" id="textMinutesAfterSoftRateLimit"></input> minutes after "soft" rate limit</span>
+                        <span>Wait <input type="number" value="1" step="1" id="textHoursAfterHardRateLimit"></input> hours after "hard" rate limit</span>
+                    </div>
+                </details>
+                <details id="detailsProcessingQueueOptions">
+                    <summary>Configure Queue Processing Options</summary>
+                    <div class="followOptions">
+                        <label for="cbAutoSaveQueue">
+                            <input type="checkbox" id="cbAutoSaveQueue" /> Automatically save queue (to local storage) after each processed account
+                        </label>
+                    </div>
+                </details>
+                <details id="detailsFollowingOptions">
+                    <summary>Configure Following Options</summary>
+                    <div class="followOptions">
+                        <label for="cbFollowAlreadyAttempted">
+                            <input type="checkbox" id="cbFollowAlreadyAttempted" /> Follow people I've already attempted</label>
+                        <label for="cbApplyFilterAutomatically" title="Apply the currently selected filters automatically from now on">
+                            <input type="checkbox" id="cbApplyFilterAutomatically" /> Apply Filters Automatically While Following</label>
+                    </div>
+                </details>
+                <details id="detailsUnfollowingOptions">
+                    <summary>Configure Unfollowing Options</summary>
+                    <div class="followOptions">
+                        <label for="cbDontUnfollowFollowers">
+                            <input type="checkbox" checked="checked" id="cbDontUnfollowFollowers" /> Don't unfollow people who follow me</label>
+                        <label for="cbUnfollowOld">
+                            <input type="checkbox" id="cbUnfollowOld" /> Unfollow people I began following more than
+                            <input type="number" value="30" step="1" id="textUnfollowOld"></input> days ago (even if they follow me)</label>
+                        <label for="cbDontUnfollowFresh">
+                            <input type="checkbox" checked="checked" id="cbDontUnfollowFresh" /> Don't unfollow people I began following less than
+                            <input type="number" value="3" step="1" id="textUnfollowNew"></input> days ago</label>
+                        <label for="cbDontUnfollowNonGrowbot">
+                            <input type="checkbox" checked="checked" id="cbDontUnfollowNonGrowbot" /> Don't unfollow people followed outside of Growbot</label>
+                        <label for="cbDontUnfollowFilters">
+                            <input type="checkbox" checked="checked" id="cbDontUnfollowFilters" /> Don't unfollow people who match my filters</label>
+                    </div>
+                </details>
+            </div>
+            <div id="multiFilter">
+                <h3>Filter Accounts</h3>
+                <div id="sliders">
+                    Followers
+                    <div id="followersSlider"></div>
+                    Following
+                    <div id="followingSlider"></div>
+                    Follow Ratio
+                    <div id="followRatioSlider"></div>
+                    Posts
+                    <div id="postsSlider"></div>
+                    Last Posted (days ago) Note: Private accounts are considered to have last posted in the year 1970.
+                    <div id="lastPostedSlider"></div>
+                </div>
+                <label for="cbFollowPrivateAccounts" id="lblFollowPrivateAccounts">
+                    <input type="checkbox" checked="checked" id="cbFollowPrivateAccounts" /> Private Accounts
+                </label>
+                <label for="cbFilterNonPrivate">
+                    <input type="checkbox" id="cbFilterNonPrivate" checked="checked" /> Public Accounts</label>
+                <label for="cbFilterVerified">
+                    <input type="checkbox" id="cbFilterVerified" checked="checked" /> Verified Accounts</label>
+                <label for="cbFilterNonVerified">
+                    <input type="checkbox" id="cbFilterNonVerified" checked="checked" /> Non-Verified Accounts</label>
+                <br>
+                <br>
+                <div>The below filters only apply when following (not unfollowing):</div>
+                <br>
+                <br>
+                <label for="cbFollowsMe">
+                    <input type="checkbox" id="cbFollowsMe" /> Follows Me</label>
+                <label for="cbNonFollowsMe">
+                    <input type="checkbox" id="cbNonFollowsMe" checked="checked" /> Doesn't Follow Me</label>
+                <label for="cbFollowedByMe">
+                    <input type="checkbox" id="cbFollowedByMe" /> Followed by Me</label>
+                <label for="cbNonFollowedByMe">
+                    <input type="checkbox" id="cbNonFollowedByMe" checked="checked" /> Not Followed by Me</label>
+                <br>
+                <br>
+                <div class="igBotInjectedButton" id="btnResetFilter">Reset Filters</div>
+                <div class="igBotInjectedButton" id="btnApplyFilter">Apply Filters to Current Queue</div>
+            </div>
+        </div>
+        <!-- https://refreshless.com/nouislider/ -->
+        <div id="igBotQueueContainerContainer">
+            <div id="igBotQueueContainer">
+                <div id="igBotQueueContainerMessage">
+                    <p>1. This is the <i>queue</i>. Accounts will appear here after loading. Click the "Process Queue" button to start following or unfollowing them.</p>
+                    <p>2. Please read the info / faq here: <a href="https://www.growbotforinstagram.com" target="_blank">https://www.growbotforinstagram.com</a></p>
+                    <p>3. If you experience any issues, read #2, then please email <a href="mailto:instabotautomator@gmail.com">instabotautomator@gmail.com</a></p>
+                    <!-- <p class="igBotUpdateNote">Note: If you see 429 rate limit, you just need to wait. It usually takes 10 minutes or less. It means instagram has temporarily blocked you from doing that specific action (loading more followers / followings, usually). Nothing is broken, it's just the way it works now since recent changes that instagram made.
+                    </p> -->
+                    <br>
+                    <details id="detailsUpdateInstructions" class="igBotUpdateNote">
+                        <summary>You can force Chrome check for Growbot updates (you have version <span id="igBotExtensionVersion">x.x.x</span>)</summary>
+                        <ol>
+                            <li> Go to chrome://extensions by typing it into the address bar</li>
+                            <li> Check the Developer mode checkbox on the right-hand side.</li>
+                            <li> Click the "Update extensions now" button. </li>
+                        </ol>
+                    </details>
+                    <p class="igBotUpdateNote">v0.5.7 updates:
+                        <br> - fix bug where removed accounts from the whitelist were not saved
+                        <br> - add option to automatically save queue after each processed account
+                    </p>
+                    <p class="igBotUpdateNote">v0.5.6 updates:
+                        <br> - A recent Chrome update caused problems with loading queues/whitelists from files, updated dialog boxes to work around this issue
+                    </p>
+                    <p class="igBotUpdateNote">v0.5.5 updates:
+                        <br> - Now you can save and load queues as files
+                    </p>
+                    <p class="igBotUpdateNote">v0.5.4 updates:
+                        <br> - fix Load Comments and Load Likers to work with Limit Queue
+                    </p>
+                    <p class="igBotUpdateNote">v0.5.3 updates:
+                        <br> - add Load Pending Follow Requests button
+                    </p>
+                    <p class="igBotUpdateNote">v0.5.2 updates:
+                        <br> - fix for Growbot causing issues with loading icons in other pages
+                        <br> - fix bug with timeouts when unfollowing
+                        <br> - change Growbot icon to match size of IG icon
+                        <br> - add notification when the max number of accounts has been reached
+                    </p>
+                    <p class="igBotUpdateNote">v0.5.1 updates:
+                        <br> - <span style="color:red;">Removed Follow All From Queue button, and Unfollow button, now there is a "Process Queue" button and radio buttons to select what action to perform</span>
+                        <br> - Bugfix: manually filtering queue didn't work
+                        <br> - Add email and help icons
+                    </p>
+                    <p class="igBotUpdateNote">v0.5.0 updates:
+                        <br> - <span style="color:red;">Options have moved to the "settings wheel icon" on top right of Growbot</span>
+                        <br> - Add option for showing stamps or not
+                        <br> - Add option to remove accounts from queue after processing
+                        <br> - Add option for showing liked media or not
+                        <br> - Add option for wait time after skipping an account
+                        <br> - Add option to allow following accounts already attempted
+                    </p>
+                    <p class="igBotUpdateNote">v0.4.9 updates:
+                        <br> - Add convenient buttons in feed to Whitelist or Unfollow accounts as you scroll through and see pics
+                    </p>
+                    <p class="igBotUpdateNote">v0.4.8 updates:
+                        <br> - Add feature for auto liking pics when following
+                        <br> - Add media queue so you can see what pics are being liked
+                        <br> - Change display queue so that it shows "Followed", "Liked", or "Skipped" stamps instead of removing accts/media
+                    </p>
+                    <p class="igBotUpdateNote">v0.4.7 updates:
+                        <br> - Fix support for hashtags with non-latin characters
+                    </p>
+                </div>
+            </div>
+            <div id="igBotMediaQueueContainer"></div>
+        </div>
+        <div id="divSubscriptionLink">
+            <h3>Other ways to subscribe</h3>
+            <o>The subscription options above work through your Google account.</p>
+                <p>If you can't subscribe through Google (such as if your country is not supported), please:</p>
+                <p><a href="https://www.growbotforinstagram.com/?guid=" id="websiteSubscribeLink" target="_blank">Subscribe through the Growbot site &rarr;</a>
+        </div>
+        <div id="igBotQueueContainerButtons">
+            <div id="igBotStatusDiv" style="width: 100%;">Ready to accept commands</div>
+            <br>
+            <div class="igBotInjectedButton flex7" id="btnGetAllUsersFollowers" title="Loads the current page's followers into the queue">Load Current Page's Followers</div>
+            <div class="igBotInjectedButton flex7" id="btnGetAllUsersFollowing" title="Loads accounts which the current page account is following into the queue">Load Current Page's Following</div>
+            <div class="igBotInjectedButton flex7" id="btnLoadPendingRequests" title="Load requests to follow private accounts which have not been approved or rejected yet (these count toward your follower total)">Load Pending Follow Requests</div>
+            <div class="igBotInjectedButton flex7" id="btnGetCommenters" title="Loads accounts which commented on the current pages media">Load Commenters</div>
+            <div class="igBotInjectedButton flex7" id="btnGetLikers" title="Loads accounts which liked the current pages media">Load Likers</div>
+            <div class="igBotInjectedButton flex7" id="btnLoadSavedQueue">Load Queue</div>
+            <div class="igBotInjectedButton flex7" id="btnSaveQueueToStorage">Save Queue</div>
+            <br>
+            <div class="igBotInjectedButton" id="btnSelectAll" title="Select all shown accounts">Select All</div>
+            <div class="igBotInjectedButton" id="btnSelectNone" title="Select nothing">Select None</div>
+            <div class="igBotInjectedButton" id="btnInvertSelection" title="Select the opposite of what is currently selected">Invert selection</div>
+            <div class="igBotInjectedButton" id="btnRemoveSelected" title="Remove all the selected accounts">Remove selected</div>
+            <!--      <br>
+        <div class="igBotInjectedButton" id="" title="Add selected accounts to the list of accounts never to follow">Add selected to blacklist</div>
+        <div class="igBotInjectedButton" id="" title="">Load blacklist</div>
+        <div class="igBotInjectedButton" id="" title="">Save blacklist</div> -->
+            <br>
+            <div class="igBotInjectedButton" id="btnGetAdditionalUserData" title="Gets more data about each account in queue: &#13; Private Status &#13; Follower Count &#13; Following Count &#13; Post Count">Get More Data</div>
+            <div class="igBotInjectedButton" id="btnAddToWhiteList" title="Add selected accounts to list of accounts never to UNfollow">Add selected to whitelist</div>
+            <div class="igBotInjectedButton" id="btnViewWhiteList" title="">Load whitelist</div>
+            <div class="igBotInjectedButton" id="btnSaveWhiteList" title="Saves the whitelist to local storage and/or disk">Save whitelist</div>
+        </div>
+    </div>
+    <div id="igBotButtonContainer">
+        <div class="igBotFlexRow">
+            <a href="javascript:void(0);" id="iconFilter"></a>
+            <a href="javascript:void(0);" id="iconOptions"></a>
+            <a href="https://www.growbotforinstagram.com/" target="_blank" id="iconHelp">?</a>
+            <a href="mailto:instabotautomator@gmail.com" id="iconEmail">@</a>
+            <div class="igBotInjectedButton" id="btnHide">Hide</div>
+        </div>
+        <div class="processQueueOptions">
+            <label for="cbFollowLikeLatestPics">
+                <input type="checkbox" id="cbFollowLikeLatestPics" /> Like User's Latest
+                <input type="number" value="1" step="1" min="0" max="12" id="numberFollowLikeLatestPics"></input>
+                Pic(s) when Following</label>
+            <div class="processQueueRadioButtons">
+                <label for="radioFollow">
+                    <input type="radio" id="radioFollow" name="queueAction" value="radioFollow" checked /> Follow
+                </label>
+                <label for="radioUnFollow">
+                    <input type="radio" id="radioUnFollow" name="queueAction" value="radioUnFollow" /> Unfollow
+                </label>
+                <label for="radioNone">
+                    <input type="radio" id="radioNone" name="queueAction" value="radioNone" /> Like Only
+                </label>
+            </div>
+        </div>
+        <div class="igBotInjectedButton" id="btnProcessQueue">Process Queue</div>
+        <br>
+        <div class="igBotInjectedButton" id="btnLikeHashtag">Like
+            <input type="number" value="50" id="numberToLikeHashtag" min="1"></input> Posts from Current Page Hashtag</div>
+        <div class="igBotInjectedButton" id="btnLikeFeed">Like
+            <input type="number" value="50" id="numberToLike" min="1"></input> Posts from Feed</div>
+        <br>
+        <div class="igBotInjectedButton" id="btnStop">Stop!</div>
+        <details id="detailsConsole">
+            <summary>Log</summary>
+            <textarea id="txtConsole"></textarea>
+        </details>
+    </div>
+</div>
